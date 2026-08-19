@@ -26,8 +26,8 @@ X = [logit(pick("logic_calculation","LH")),...
      logit(pick("logic_language","bilateral")), ...
      logit(pick("gk_language","bilateral"))];
 
-[h1,p1,ci1,s1] = ttest(X(:,1), X(:,2), alpha);
-[h2,p2,ci2,s2] = ttest(X(:,3), X(:,4), alpha);
+[h1,p1,ci1,s1] = ttest(X(:,4), X(:,5), alpha);
+[h2,p2,ci2,s2] = ttest(X(:,1), X(:,2), alpha);
 
 fprintf('logic_lang vs gk_lang: t(%d) = %.3f  p = %.4f\n', s1.df, s1.tstat, p1);
 fprintf('\n')
