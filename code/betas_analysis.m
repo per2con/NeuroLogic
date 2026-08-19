@@ -28,9 +28,6 @@ data.stimType = categorical(data.category_id, 1:6, ...
 data.truthVal = categorical(data.category_id, 1:6, ...
     {'True','False','Meaningless','True','False','Meaningless'});
 
-nLogicians = numel(unique(data.subject_id(data.group == 'logicians')));
-nControls = numel(unique(data.subject_id(data.group == 'controls')));
-
 % Group stats for plotting
 group_stats = grpstats(data, {'group','stimType','truthVal','roi'}, ...
                        {'mean','sem'}, 'DataVars', 'parameter_estimate');
