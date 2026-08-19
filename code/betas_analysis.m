@@ -1,6 +1,4 @@
 %% PARAMETER ESTIMATES ANALYSIS
-% This code has been used to assess group differences in parameter
-% estimates (ref. section 1 and 2 of Results - fMRI results)
 
 clear; clc
 

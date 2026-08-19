@@ -1,8 +1,5 @@
 %% BEHAVIOURAL ANALYSIS: Logicians vs Controls, Logic vs Non-Logic Conditions
-
 % Accuracy (3-way forced choice) and d-prime (meaningful vs meaningless)
-% Expected CSV columns:
-% subject, group, run, trial, condition_id, question_id, this_resp, accuracy
 
 clear; clc
 
@@ -44,7 +41,7 @@ nControls = numel(unique(data.subject_id(data.group == 'controls')));
 
 %% ===== ACCURACY ANALYSIS ======
 
-subjAcc = groupsummary(data, {'subject_id', 'group', 'stimType'}, 'mean', 'accuracy');
+subjAcc = grpstats(data, {'subject_id', 'group', 'stimType'}, 'mean', 'DataVars', 'accuracy');
 subjAcc.accuracy = subjAcc.mean_accuracy * 100;
 
 accWide = unstack(subjAcc(:, {'subject_id', 'group', 'stimType', 'accuracy'}), 'accuracy', 'stimType');
@@ -83,12 +80,9 @@ disp(accStats)
 %% ==== D-PRIME =====
 
 % Hits = response is [1,2] to either true or false statements
-%        or [3] to meaningless statements
-
 % False alarms = response is [1,2] to meaningless statements
-%                or [3] to either true or false statements
 
-rates = groupsummary(data, {'subject_id', 'group', 'stimType', 'trialType'}, 'sum', {'isEndorsed', 'isValid'});
+rates = grpstats(data, {'subject_id', 'group', 'stimType', 'trialType'}, 'sum', {'isEndorsed', 'isValid'});
 rates.rate = rates.sum_isEndorsed ./ rates.sum_isValid;
 
 isZero = rates.rate == 0;
