@@ -26,17 +26,20 @@ data_gk = pick('gk');
 data_calculation = pick('calculation');
  
 %% T-test vs 0 (i.e., bilaterality)
+
 for i = 1:numel(conds)
     [~,p,~,st] = ttest(Z(:,i), 0, alpha);
-    fprintf('%s vs 0, t =%5.2f, p = %.4f\n', conds{i}, st.tstat, p);
+    fprintf('%s vs 0, t(%d) =%5.2f, p = %.4f\n', conds{i}, st.df, st.tstat, p);
+    fprintf('\n')
 end
-fprintf('\n')
  
 %% Paired t-tests
+
 for k = 1:size(pairs,1)
     a = pick(pairs{k,1});
     b = pick(pairs{k,2});
     [~,p,~,st] = ttest(a, b, 'Alpha', alpha);
-    fprintf('%s vs %s, t =%5.2f,  p = %.4f\n', pairs{k,:}, st.tstat, p);
+    fprintf('%s vs %s, t(%d) =%5.2f, p = %.4f\n', pairs{k,:}, st.df, st.tstat, p);
+    fprintf('\n')
 end
 
