@@ -55,7 +55,7 @@ accSummary = grpstats(subjAcc(:, {'stimType', 'group', 'accuracy'}), {'stimType'
 disp(accSummary)
 
 % Stats:
-% One-sample t-test against chanche (i.e., 33%)
+% One-sample t-test against chance (i.e., 33%)
 % Paired-sample t-test
 % Mixed ANOVA
 % Post-hoc two-samples t-test
@@ -108,7 +108,7 @@ dprimeSummary = grpstats(rateWide(:, {'stimType', 'group', 'dprime'}), {'stimTyp
 disp(dprimeSummary)
 
 % Stats:
-% One-sample t-test against chanche (i.e., 0 -> HIT rate == FA rate)
+% One-sample t-test against chance (i.e., 0 -> HIT rate == FA rate)
 % Paired-sample t-test
 % Mixed ANOVA
 % Post-hoc two-samples t-test
@@ -133,8 +133,6 @@ disp(dprimeStats)
 
 
 %% === FUNCTIONS: t-TESTS, REPORTED AS TABLE ROWS ===
-% Each helper returns a one-row table with a consistent {Test, t, df, p,
-% Estimate} layout so results can be stacked into a single readable table.
 
 function row = oneSampleT(label, x, mu, tail)
 [~, p, ~, stats] = ttest(x, mu, 'Tail', tail);
