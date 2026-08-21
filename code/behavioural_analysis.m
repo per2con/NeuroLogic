@@ -1,5 +1,8 @@
 %% BEHAVIOURAL ANALYSIS: Logicians vs Controls, Logic vs Non-Logic Conditions
-% Accuracy (3-way forced choice) and d-prime (meaningful vs meaningless)
+
+% Accuracy (3-way forced choice) and d-prime (meaningful vs meaningles)
+% Expected CSV columns:
+% subject, group, run, trial, condition_id, question_id, this_resp, accuracy
 
 clear; clc
 
@@ -41,7 +44,7 @@ nControls = numel(unique(data.subject_id(data.group == 'controls')));
 
 %% ===== ACCURACY ANALYSIS ======
 
-subjAcc = grpstats(data, {'subject_id', 'group', 'stimType'}, 'mean', 'DataVars', 'accuracy');
+subjAcc = groupsummary(data, {'subject_id', 'group', 'stimType'}, 'mean', 'accuracy');
 subjAcc.accuracy = subjAcc.mean_accuracy * 100;
 
 accWide = unstack(subjAcc(:, {'subject_id', 'group', 'stimType', 'accuracy'}), 'accuracy', 'stimType');
@@ -55,7 +58,7 @@ accSummary = grpstats(subjAcc(:, {'stimType', 'group', 'accuracy'}), {'stimType'
 disp(accSummary)
 
 % Stats:
-% One-sample t-test against chance (i.e., 33%)
+% One-sample t-test against chanche (i.e., 33%)
 % Paired-sample t-test
 % Mixed ANOVA
 % Post-hoc two-samples t-test
@@ -68,28 +71,31 @@ accStats = [oneSampleT('Logicians, Logic vs chance', acc_logic_logicians, chance
                pairedT('Logicians, Logic vs Non-Logic', acc_logic_logicians, acc_gk_logicians); ...
                pairedT('Controls, Logic vs Non-Logic', acc_logic_controls, acc_gk_controls)];
 
+disp(accStats)
+
 runMixedAnova(acc_logic_logicians, acc_gk_logicians, acc_logic_controls, ...
               acc_gk_controls, nLogicians, nControls);
 
-accStats = [accStats;...
-            twoSampleT('Logic, Logicians vs Controls', acc_logic_logicians, acc_logic_controls); ...
-            twoSampleT('Non-Logic, Logicians vs Controls', acc_gk_logicians, acc_gk_controls)];
+postHocStats = [twoSampleT('Logic, Logicians vs Controls', acc_logic_logicians, acc_logic_controls); ...
+               twoSampleT('Non-Logic, Logicians vs Controls', acc_gk_logicians, acc_gk_controls)];
 
-disp(accStats)
+disp(postHocStats)
 
 %% ==== D-PRIME =====
 
 % Hits = response is [1,2] to either true or false statements
-% False alarms = response is [1,2] to meaningless statements
+%        or [3] to meaningless statements
 
-rates = grpstats(data, {'subject_id', 'group', 'stimType', 'trialType'}, 'sum', {'isEndorsed', 'isValid'});
+% False alarms = response is [1,2] to meaningless statements
+%                or [3] to either true or false statements
+
+rates = groupsummary(data, {'subject_id', 'group', 'stimType', 'trialType'}, 'sum', {'isEndorsed', 'isValid'});
 rates.rate = rates.sum_isEndorsed ./ rates.sum_isValid;
 
 isZero = rates.rate == 0;
 isOne = rates.rate == 1;
 
-% Vectorized log-linear-style correction for rates of
-% exactly 0 or 1 (which would otherwise give +/-Inf under norminv)
+% Correction for rates of exactly 0 or 1 (which would otherwise give +/-Inf)
 
 rates.rate(isZero) = 0.5 ./ rates.sum_isValid(isZero);
 rates.rate(isOne) = 1 - 0.5 ./ rates.sum_isValid(isOne);
@@ -108,7 +114,7 @@ dprimeSummary = grpstats(rateWide(:, {'stimType', 'group', 'dprime'}), {'stimTyp
 disp(dprimeSummary)
 
 % Stats:
-% One-sample t-test against chance (i.e., 0 -> HIT rate == FA rate)
+% One-sample t-test against chanche (i.e., 0 -> HIT rate == FA rate)
 % Paired-sample t-test
 % Mixed ANOVA
 % Post-hoc two-samples t-test
@@ -121,35 +127,34 @@ dprimeStats = [oneSampleT('Logicians, Logic vs chance', dprime_logic_logicians, 
                pairedT('Logicians, Logic vs Non-Logic', dprime_logic_logicians, dprime_gk_logicians); ...
                pairedT('Controls, Logic vs Non-Logic', dprime_logic_controls, dprime_gk_controls)];
 
+disp(dprimeStats)
+
 runMixedAnova(dprime_logic_logicians, dprime_gk_logicians, dprime_logic_controls, ...
               dprime_gk_controls, nLogicians, nControls);
 
-dprimeStats = [dprimeStats;...
-               twoSampleT('Logic, Logicians vs Controls', dprime_logic_logicians, dprime_logic_controls); ...
+postHocStats = [twoSampleT('Logic, Logicians vs Controls', dprime_logic_logicians, dprime_logic_controls); ...
                twoSampleT('Non-Logic, Logicians vs Controls', dprime_gk_logicians, dprime_gk_controls)];
 
-disp(dprimeStats)
-
-
+disp(postHocStats)
 
 %% === FUNCTIONS: t-TESTS, REPORTED AS TABLE ROWS ===
 
 function row = oneSampleT(label, x, mu, tail)
-[~, p, ~, stats] = ttest(x, mu, 'Tail', tail);
-row = table(string(label), stats.tstat, stats.df, p, mean(x), ...
-           'VariableNames', {'Test', 't', 'df', 'p', 'Estimate'});
+[h, p, ci, stats] = ttest(x, mu, 'Tail', tail);
+row = table(string(label), h, stats.tstat, stats.df, p, ci(:)', ...
+           'VariableNames', {'Test', 'Reject', 't', 'df', 'p', 'ci'});
 end
 
 function row = pairedT(label, x, y)
-[~, p, ~, stats] = ttest(x, y);
-row = table(string(label), stats.tstat, stats.df, p, mean(x - y), ...
-            'VariableNames', {'Test', 't', 'df', 'p', 'Estimate'});
+[h, p, ci, stats] = ttest(x, y);
+row = table(string(label), h, stats.tstat, stats.df, p, ci(:)', ...
+            'VariableNames', {'Test', 'Reject', 't', 'df', 'p', 'ci'});
 end
 
 function row = twoSampleT(label, x, y)
-[~, p, ~, stats] = ttest2(x, y);
-row = table(string(label), stats.tstat, stats.df, p, mean(x) - mean(y), ...
-            'VariableNames', {'Test', 't', 'df', 'p', 'Estimate'});
+[h, p, ci, stats] = ttest2(x, y);
+row = table(string(label), h, stats.tstat, stats.df, p, ci(:)', ...
+            'VariableNames', {'Test', 'Reject', 't', 'df', 'p', 'ci'});
 end
 
 %% === FUNCTION: MIXED ANOVA (group x condition, subjects nested) ===
