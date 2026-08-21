@@ -2,7 +2,6 @@
 
 clear; clc
 
-
 dataFile = 'logicians_betas_logic_main_task';
 %dataFile = 'logicians_betas_gk_main_task';
 

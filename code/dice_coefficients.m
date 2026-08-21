@@ -2,7 +2,6 @@
 
 clear; clc
 
-
 dataFile = 'dice_coefficients.csv';
 alpha = 0.05;
 
