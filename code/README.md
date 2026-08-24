@@ -10,7 +10,7 @@ MATLAB scripts for the behavioural and fMRI analyses reported in the manuscript 
 | `betas_analysis.m` | Parameter estimates by group, stimulus type, truth value and ROI (descriptive stats for plotting) | `logicians_betas_logic_main_task` / `logicians_betas_gk_main_task` |
 | `dice_coefficients.m` | Overlap between activation maps; logit-transformed paired t-tests | `dice_coefficients.csv` |
 | `lateralization_indices.m` | Lateralization indices: Fisher-z t-tests vs 0 and paired comparisons across conditions | `lateralization_indices.csv` |
-| `intensity_and_extent.m` | Lateralization indices: Fisher-z t-tests vs 0 and paired comparisons across conditions | `formula_activation_results.csv` |
+| `intensity_and_extent.m` | Intensity and extent of formula-selective activation: mixed ANOVA, t-test | `formula_activation_results.csv` |
 
 ## 1. System requirements
 
