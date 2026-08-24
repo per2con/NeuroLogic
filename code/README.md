@@ -40,6 +40,7 @@ run("code/behavioural_analysis/")
 - `betas_analysis.m` — `group_stats` table with mean ± SEM parameter estimates per group, stimulus type, truth value and ROI.
 - `dice_coefficients.m` — `group_stats` table plus two lines reporting `t`, `df`, `p` for the paired comparisons.
 - `lateralization_indices.m` — `group_stats` table, one line per condition for the tests against 0, and one line per pair for the paired tests.
+-  `intensity_and_extent.m` — three ANOVA tables (for peak intensity, cluster intensity, extent), post-hoc t-tests for the extent analysis, Cohen's d in the right hemisphere (`d_extent_right`) .
 
 **Expected run time:** a few seconds per script on a normal desktop computer.
 
