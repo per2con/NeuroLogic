@@ -120,13 +120,6 @@ fprintf('============================================================\n');
     'nested', [0 0 0; 0 0 0; 1 0 0]);
 
 
-% % Post hoc t test per mean T
-% [h_left,p_left,ci_left,stats_left]       = ttest2(MeanT_Left_Controlli,  MeanT_Left_Logici);
-% [h_right,p_right,ci_right,stats_right]   = ttest2(MeanT_Right_Controlli, MeanT_Right_Logici);
-% 
-% [h_lr_log,p_lr_log,ci_lr_log,stats_lr_log]     = ttest(MeanT_Left_Logici,    MeanT_Right_Logici)
-% [h_lr_ctrl,p_lr_ctrl,ci_lr_ctrl,stats_lr_ctrl] = ttest(MeanT_Left_Controlli, MeanT_Right_Controlli)
-
 % Post hoc t test per extent
 % 
 % [h_left,p_left,ci_left,stats_left]       = ttest2(Formule_Left_Controlli,  Formule_Left_Logici);
