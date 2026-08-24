@@ -127,3 +127,10 @@ fprintf('============================================================\n');
 % 
 % [h_lr_log,p_lr_log,ci_lr_log,stats_lr_log]    = ttest(Formule_Left_Logici,    Formule_Right_Logici)
 % [h_lr_ctrl,p_lr_ctrl,ci_lr_ctrl,stats_lr_ctrl] = ttest(Formule_Left_Controlli, Formule_Right_Controlli)
+
+%% Cohen's d
+
+d_extent_right = (mean(Formule_Right_Logici, 'omitnan') - mean(Formule_Right_Controlli, 'omitnan')) / ...
+    sqrt((var(Formule_Right_Logici, 'omitnan') + var(Formule_Right_Controlli, 'omitnan')) / 2);
+
+fprintf('Cohen''s d extent right: %.2f\n', d_extent_right);
