@@ -130,7 +130,7 @@ fprintf('============================================================\n');
 % Post hoc t test per extent
 % 
 % [h_left,p_left,ci_left,stats_left]       = ttest2(Formule_Left_Controlli,  Formule_Left_Logici);
- [h_right,p_right,ci_right,stats_right]   = ttest2(Formule_Right_Controlli, Formule_Right_Logici);
+% [h_right,p_right,ci_right,stats_right]   = ttest2(Formule_Right_Controlli, Formule_Right_Logici);
 % 
 % [h_lr_log,p_lr_log,ci_lr_log,stats_lr_log]    = ttest(Formule_Left_Logici,    Formule_Right_Logici)
 % [h_lr_ctrl,p_lr_ctrl,ci_lr_ctrl,stats_lr_ctrl] = ttest(Formule_Left_Controlli, Formule_Right_Controlli)
