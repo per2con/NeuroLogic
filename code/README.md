@@ -52,3 +52,4 @@ For each script, set `dataFile` at the top to your own file and run it. Required
 - **Betas:** `subject_id`, `group`, `roi`, `category_id` (1–6), `parameter_estimate`.
 - **Dice:** `maps`, `hemisphere` (`LH`/`RH`/`bilateral`), `dice`.
 - **Lateralization:** `subject_id`, `condition` (`logic`/`gk`/`calculation`), `LI_wm`.
+-  **Intensity and extent:** `Subject`, `Group`, `Extent_Left`, `Extent_Right`, `PeakT_Left`, `PeakT_Right`, `MeanT_Left`, `MeanT_Right` .
