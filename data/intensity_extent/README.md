@@ -15,8 +15,8 @@
 | `Extent_Right` | numeric | Number of suprathreshold voxels (p < .01 uncorrected) in the cluster containing the individual peak of the Formulas > Others contrast (Right Hemisphere) |
 | `PeakT_Left` | numeric | Maximum t-value within the cluster containing the individual peak of the Formulas > Others contrast (Left Hemisphere)|
 | `PeakT_Right` | numeric | Maximum t-value within the cluster containing the individual peak of the Formulas > Others contrast (Right Hemisphere)|
-| `MeanT_Left` | numeric | Mean t-value across all suprathreshold voxels within the cluster containing the individual peak of the Formulas > Others contrast|
-| `MeanT_Right` | numeric | Mean t-value across all suprathreshold voxels within the cluster containing the individual peak of the Formulas > Others contrast|
+| `MeanT_Left` | numeric | Mean t-value across all suprathreshold voxels within the cluster containing the individual peak of the Formulas > Others contrast (Left Hemisphere) |
+| `MeanT_Right` | numeric | Mean t-value across all suprathreshold voxels within the cluster containing the individual peak of the Formulas > Others contrast (Right Hemisphere) |
 
 ### Example Row
 
