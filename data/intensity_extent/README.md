@@ -23,10 +23,3 @@
 | Subject | Group | Extent_Left | Extent_Right | PeakT_Left | PeakT_Right | MeanT_Left | MeanT_Right |
 |:---|:---|:---|:---|:---|:---|:---|:---|
 | 2 | control | 19 | 5 | 3.647 | 3.58 | 2.77 | 3.00 |
-
-
-### Example Row
-
-| subject_id | group | roi | category_id | parameter_estimate |
-|:---|:---|:---|:---|:---|
-| sub-01 | logicians | left_IPS | 1 | 2.5 | 
