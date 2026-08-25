@@ -1,3 +1,7 @@
+# Euclidean distances (RSA)
+
+This file contains the Euclidean distances reported in "*The brain encodes pure logic beyond natural language and at the boundaries with mathematics*" (Amalric et al., 2026).
+
 ## Dataset overview
 
 **File**: **rsa_distances.csv**
