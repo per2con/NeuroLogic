@@ -1,3 +1,6 @@
+# Intensity and extent values
+
+This file contains the intensity and extent values reported in "*The brain encodes pure logic beyond natural language and at the boundaries with mathematics*" (Amalric et al., 2026).
 
 ## Dataset overview
 
