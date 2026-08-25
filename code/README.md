@@ -11,7 +11,7 @@ MATLAB scripts for the behavioural and fMRI analyses reported in the manuscript 
 | `dice_coefficients.m` | Overlap between activation maps; logit-transformed paired t-tests | `dice_coefficients.csv` |
 | `lateralization_indices.m` | Lateralization indices: Fisher-z t-tests vs 0 and paired comparisons across conditions | `lateralization_indices.csv` |
 | `intensity_and_extent.m` | Intensity and extent of formula-selective activation: mixed ANOVA, t-test | `formula_activation_results.csv` |
-| `dice_writtenformulas_logicstatements.m` | Overlap between activation maps; hypergeometric tests, Stouffer's Z-score | Individual t-maps |
+| `dice_logic_formulas.m` | Overlap between activation maps; hypergeometric tests, Stouffer's Z-score | `dice_raw.csv` |
 | `rsa_anovas.m` | Euclidean distances: mixed ANOVAs (Group x Modality, Group x Content x Hemisphere) | `rsa_distances.csv` |
 
 ## 1. System requirements
