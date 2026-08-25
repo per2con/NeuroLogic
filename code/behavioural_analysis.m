@@ -1,8 +1,5 @@
 %% BEHAVIOURAL ANALYSIS: Logicians vs Controls, Logic vs Non-Logic Conditions
-
 % Accuracy (3-way forced choice) and d-prime (meaningful vs meaningles)
-% Expected CSV columns:
-% subject, group, run, trial, condition_id, question_id, this_resp, accuracy
 
 clear; clc
 
