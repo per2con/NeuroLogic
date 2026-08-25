@@ -5,7 +5,7 @@
 - **Size**: (rows = 23, columns = 8)
 
 
-## Columns description (File 1 and File 2)
+## Columns description
 
 | Name | Data Type | Description |
 |:---|:---|:---|
