@@ -43,7 +43,7 @@ run("code/behavioural_analysis/")
 - `dice_coefficients.m` — `group_stats` table plus two lines reporting `t`, `df`, `p` for the paired comparisons.
 - `lateralization_indices.m` — `group_stats` table, one line per condition for the tests against 0, and one line per pair for the paired tests.
 -  `intensity_and_extent.m` — three ANOVA tables (for peak intensity, cluster intensity, extent), post-hoc t-tests for the extent analysis, Cohen's d in the right hemisphere (`d_extent_right`) .
--  `dice_logic_formulas.m` — mean, SEM,  .
+-  `dice_logic_formulas.m` — subject-wise summary table with number of voxels, dice values, hypergeometric p-values ; summary table with mean, median and SEM of dice, number of subjects showing a significant hypergeometric test at p < .01, Stouffer Z and p .
 -  `rsa_anovas.m` — two ANOVA tables (Group x Modality, Group x Content x Hemisphere) .
 
 **Expected run time:** a few seconds per script on a normal desktop computer.
@@ -57,4 +57,5 @@ For each script, set `dataFile` at the top to your own file and run it. Required
 - **Dice:** `maps`, `hemisphere` (`LH`/`RH`/`bilateral`), `dice`.
 - **Lateralization:** `subject_id`, `condition` (`logic`/`gk`/`calculation`), `LI_wm`.
 -  **Intensity and extent:** `Subject`, `Group`, `Extent_Left`, `Extent_Right`, `PeakT_Left`, `PeakT_Right`, `MeanT_Left`, `MeanT_Right` .
+-  **Dice between logic statements and formulas:** `Subject`, `V_total`, `V_logic`, `V_form`, `V_int` .
 -  **RSA:** `Subject`, `Group`, `Dist_Logic_Left`, `Dist_Logic_Right`, `Dist_General_Left`, `Dist_General_Right`, `Auditory_Mean`, `Visual_Mean` .
