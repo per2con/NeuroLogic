@@ -21,7 +21,7 @@
 ### Example Row
 
 | Subject | Group | Extent_Left | Extent_Right | PeakT_Left | PeakT_Right | MeanT_Left | MeanT_Right |
-|:---|:---|:---|:---|:---|
+|:---|:---|:---|:---|:---|:---|:---|:---|
 | 2 | control | 19 | 5 | 3.647 | 3.58 | 2.77 | 3.00 |
 
 
