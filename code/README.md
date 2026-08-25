@@ -43,7 +43,7 @@ run("code/behavioural_analysis/")
 - `dice_coefficients.m` — `group_stats` table plus two lines reporting `t`, `df`, `p` for the paired comparisons.
 - `lateralization_indices.m` — `group_stats` table, one line per condition for the tests against 0, and one line per pair for the paired tests.
 -  `intensity_and_extent.m` — three ANOVA tables (for peak intensity, cluster intensity, extent), post-hoc t-tests for the extent analysis, Cohen's d in the right hemisphere (`d_extent_right`) .
--  `dice_writtenformulas_logicstatements.m` — summary tables of dice (number of subjects, mean, SD, median, individual values), individual results from the hypergeometric test, number of significant subjects (p<0.05 and p<0.01), Stouffer's test results (individual z-values, global z-value, p-value) .
+-  `dice_logic_formulas.m` — mean, SEM,  .
 -  `rsa_anovas.m` — two ANOVA tables (Group x Modality, Group x Content x Hemisphere) .
 
 **Expected run time:** a few seconds per script on a normal desktop computer.
