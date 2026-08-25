@@ -12,6 +12,7 @@ MATLAB scripts for the behavioural and fMRI analyses reported in the manuscript 
 | `lateralization_indices.m` | Lateralization indices: Fisher-z t-tests vs 0 and paired comparisons across conditions | `lateralization_indices.csv` |
 | `intensity_and_extent.m` | Intensity and extent of formula-selective activation: mixed ANOVA, t-test | `formula_activation_results.csv` |
 | `dice_writtenformulas_logicstatements.m` | Overlap between activation maps; hypergeometric tests, Stouffer's Z-score | Individual t-maps |
+| `rsa_anovas.m` | Euclidean distances: mixed ANOVAs (Group x Modality, Group x Content x Hemisphere) | `rsa_distances.csv` |
 
 ## 1. System requirements
 
@@ -43,6 +44,7 @@ run("code/behavioural_analysis/")
 - `lateralization_indices.m` — `group_stats` table, one line per condition for the tests against 0, and one line per pair for the paired tests.
 -  `intensity_and_extent.m` — three ANOVA tables (for peak intensity, cluster intensity, extent), post-hoc t-tests for the extent analysis, Cohen's d in the right hemisphere (`d_extent_right`) .
 -  `dice_writtenformulas_logicstatements.m` — summary tables of dice (number of subjects, mean, SD, median, individual values), individual results from the hypergeometric test, number of significant subjects (p<0.05 and p<0.01), Stouffer's test results (individual z-values, global z-value, p-value) .
+-  `rsa_anovas.m` — two ANOVA tables (Group x Modality, Group x Content x Hemisphere) .
 
 **Expected run time:** a few seconds per script on a normal desktop computer.
 
@@ -55,3 +57,4 @@ For each script, set `dataFile` at the top to your own file and run it. Required
 - **Dice:** `maps`, `hemisphere` (`LH`/`RH`/`bilateral`), `dice`.
 - **Lateralization:** `subject_id`, `condition` (`logic`/`gk`/`calculation`), `LI_wm`.
 -  **Intensity and extent:** `Subject`, `Group`, `Extent_Left`, `Extent_Right`, `PeakT_Left`, `PeakT_Right`, `MeanT_Left`, `MeanT_Right` .
+-  **RSA:** `Subject`, `Group`, `Dist_Logic_Left`, `Dist_Logic_Right`, `Dist_General_Left`, `Dist_General_Right`, `Auditory_Mean`, `Visual_Mean` .
