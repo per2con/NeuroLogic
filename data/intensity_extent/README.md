@@ -1,45 +1,29 @@
-# Parameter estimates
-
-This file contains the parameter estimates which have been used to generate figure 2a and 3d. 
 
 ## Dataset overview
 
-**File 1**: **logicians_betas_logic_main_task.csv**
-- **Size**: (rows = 432, columns = 5)
+**File**: **formula_activation_results.csv**
+- **Size**: (rows = 23, columns = 8)
 
-**File 2**: **logicians_betas_gk_main_task.csv**
-- **Size**: (rows = 432, columns = 5)
-
-**File 3**: **logicians_betas_logic_difficulty_ratings.csv**
-- **Size**: (rows = 144, columns = 5)
 
 ## Columns description (File 1 and File 2)
 
 | Name | Data Type | Description |
 |:---|:---|:---|
-| `subject_id` | string | Participant identifier |
-| `group` | string | Experimental group identifier |
-| `roi` | string | Region from which parameter estimates have been extracted |
-| `category_id` | numeric | Statement category identifier (propositions and inferences collapsed together): `1` = True logic knowledge; `2` = False logic knowledge; `3` = Meaningless logic knowledge; `4` = True general knowledge; `5` = False general knowledge; `6` = Meaningless general knowledge |
-| `parameter_estimate` | numeric | Parameter estimate extracted from the region peak |
+| `Subject` | numeric | Participant identifier |
+| `Group` | string | Experimental group identifier |
+| `Extent_Left` | numeric | Number of suprathreshold voxels (p < .01 uncorrected) in the cluster containing the individual peak of the Formulas > Others contrast (Left Hemisphere) |
+| `Extent_Right` | numeric | Number of suprathreshold voxels (p < .01 uncorrected) in the cluster containing the individual peak of the Formulas > Others contrast (Right Hemisphere) |
+| `PeakT_Left` | numeric | Maximum t-value within the cluster containing the individual peak of the Formulas > Others contrast (Left Hemisphere)|
+| `PeakT_Right` | numeric | Maximum t-value within the cluster containing the individual peak of the Formulas > Others contrast (Right Hemisphere)|
+| `MeanT_Left` | numeric | Mean t-value across all suprathreshold voxels within the cluster containing the individual peak of the Formulas > Others contrast|
+| `MeanT_Right` | numeric | Mean t-value across all suprathreshold voxels within the cluster containing the individual peak of the Formulas > Others contrast|
 
 ### Example Row
 
-| subject_id | group | roi | category_id | parameter_estimate |
+| Subject | Group | Extent_Left | Extent_Right | PeakT_Left | PeakT_Right | MeanT_Left | MeanT_Right |
 |:---|:---|:---|:---|:---|
-| sub-01 | logicians | left_IPS | 1 | 2.5 | 
+| 2 | control | 19 | 5 | 3.647 | 3.58 | 2.77 | 3.00 |
 
-
-
-## Columns description (File 3)
-
-| Name | Data Type | Description |
-|:---|:---|:---|
-| `subject_id` | string | Participant identifier |
-| `group` | string | Experimental group identifier |
-| `roi` | string | Region from which parameter estimates have been extracted |
-| `category_id` | numeric | Statement category identifier (ref. Methods - Controls for difficulty analyses): `1` = Easy logic knowledge; `2` = Difficult logic knowledge; `3` = Easy general knowledge; `4` = Difficult general knowledge |
-| `parameter_estimate` | numeric | Parameter estimate extracted from the region peak |
 
 ### Example Row
 
